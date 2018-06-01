@@ -1,0 +1,2 @@
+module TestPasswordHelper
+end

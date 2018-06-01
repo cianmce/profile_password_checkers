@@ -1,3 +1,11 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  
+  root controller: :test_password, action: :index
+
+  resources :test_password, only: [:index] do
+    collection do
+      get :password_strength
+      get :strong_password
+    end
+  end
 end
