@@ -23,7 +23,7 @@
   <br />
   <%= f.submit "Test Password" %>
   <button id="pi-btn">+5k π</button>
-  <button id="pi-btn-50">+100k π</button>
+  <button id="pi-btn-50">+50k π</button>
 <% end %>
 
 <% if @timer %>
@@ -77,7 +77,7 @@
   }
   document.getElementById("pi-btn-50").onclick = function(e){
     e.preventDefault();
-    document.getElementById("user_password").value += PI.repeat(10);
+    document.getElementById("user_password").value += PI.repeat(5);
     updateCount();
   }
   document.getElementById("user_password").addEventListener("keyup", updateCount);
