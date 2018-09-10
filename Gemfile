@@ -9,9 +9,8 @@ gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # gem 'password_strength', '~> 1.1', '>= 1.1.4'
-gem 'password_strength', :git => 'https://github.com/cianmce/password_strength'
-
-gem 'strong_password', '~> 0.0.5'
+gem 'password_strength', git: 'https://github.com/cianmce/password_strength'
+gem 'strong_password', git: 'https://github.com/cianmce/strong_password'
 
 
 # Reduces boot times through caching; required in config/boot.rb

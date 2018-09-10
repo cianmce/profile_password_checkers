@@ -6,7 +6,7 @@
 <%= form_for :user, url: root_path do |f| %>
   Username: <%= f.text_field :name, placeholder: "(optional)" %>
   <br />
-  Password: <%= f.text_area :password, cols: "100", rows: "30" %>
+  Password: <%= f.text_area :password, cols: "100", rows: "6" %>
   <br />
   Password Length: <span id="password-length"></span> 
   <br />
@@ -16,7 +16,9 @@
   <br />
   <br />
   <hr />
-  Gem: <%= f.select :gem, ["fnando/password_strength", "bdmac/strong_password"]%>
+  Gem: <%= f.select :gem, options_for_select(["fnando/password_strength", "bdmac/strong_password"], @gem_name)%>
+  <br />
+  Use Patch: <%= f.check_box :patch, { checked: @patch } %>
   <br />
   <br />
   <%= f.submit "Test Password" %>
@@ -25,6 +27,9 @@
 <% end %>
 
 <% if @timer %>
+<br />
+<hr />
+<br />
   <table>
     <tr>
       <th><b>Results:</b></th>
@@ -41,6 +46,10 @@
     <tr>
       <td>Gem:</td>
       <td><%= @gem_name %></td>
+    </tr>
+    <tr>
+      <td>Patch:</td>
+      <td><%= @patch %></td>
     </tr>
   </table>
   <h3>Time (seconds):</h3>
