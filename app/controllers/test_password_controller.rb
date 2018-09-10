@@ -2,8 +2,8 @@ class TestPasswordController < ApplicationController
   after_action :apply_patch
   SUPPORTED_GEMS = ["fnando/password_strength", "bdmac/strong_password"]
   PASSWORD_LENGTH_LIMITS = {
-    "fnando/password_strength" => 50_000,
-    "bdmac/strong_password" => 2_000_000
+    "fnando/password_strength" => 200_000,
+    "bdmac/strong_password" => 5_000_000
   }
 
   def index
