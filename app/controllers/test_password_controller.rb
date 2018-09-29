@@ -2,7 +2,7 @@ class TestPasswordController < ApplicationController
   after_action :apply_patch
   SUPPORTED_GEMS = ["fnando/password_strength", "bdmac/strong_password"]
   PASSWORD_LENGTH_LIMITS = {
-    "fnando/password_strength" => 200_000,
+    "fnando/password_strength" => 50_000,
     "bdmac/strong_password" => 5_000_000
   }
 
@@ -31,8 +31,11 @@ class TestPasswordController < ApplicationController
     if flash[:error].blank?
       unless @patch
         Rails.logger.info "[patch] Removing"
+        PasswordStrength::Base.send(:remove_const, :PASSWORD_LIMIT)
         PasswordStrength::Base.const_set(:PASSWORD_LIMIT, 100_000_000)
+        PasswordStrength::Base.send(:remove_const, :USERNAME_LIMIT)
         PasswordStrength::Base.const_set(:USERNAME_LIMIT, 100_000_000)
+        StrongPassword::StrengthChecker.send(:remove_const, :PASSWORD_LIMIT)
         StrongPassword::StrengthChecker.const_set(:PASSWORD_LIMIT, 100_000_000)
       end
       @timer = Benchmark.measure { @strength = test_password_gem(username, password) }
@@ -48,8 +51,11 @@ class TestPasswordController < ApplicationController
 
   def apply_patch
     Rails.logger.info "[patch] Applying"
+    PasswordStrength::Base.send(:remove_const, :PASSWORD_LIMIT)
     PasswordStrength::Base.const_set(:PASSWORD_LIMIT, 3_000)
+    PasswordStrength::Base.send(:remove_const, :USERNAME_LIMIT)
     PasswordStrength::Base.const_set(:USERNAME_LIMIT, 100_000)
+    StrongPassword::StrengthChecker.send(:remove_const, :PASSWORD_LIMIT)
     StrongPassword::StrengthChecker.const_set(:PASSWORD_LIMIT, 5_000)
   end
 
