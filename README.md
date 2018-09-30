@@ -1,11 +1,11 @@
-# profile_password_checkers
+# Profile Password Checkers
 
 Sample rails application to test long passwords with different password strength gems
 This references forked versions of the gems with a patch applied. Deselecting to use the patch sets to limit to 100,000,000
 
 ## Gems used
- - [fnando/password_strength](https://github.com/fnando/password_strength)
- - [bdmac/strong_password](https://github.com/bdmac/strong_password)
+ - [fnando/password_strength (forked)](https://github.com/cianmce/password_strength)
+ - [bdmac/strong_password (forked)](https://github.com/cianmce/strong_password)
 
 ## Benchmark Script
 A stand-alone script to test times can be seen here: [cianmce/benchmark_password_gems](https://github.com/cianmce/benchmark_password_gems)
