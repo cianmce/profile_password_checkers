@@ -1,24 +1,18 @@
-# README
+# profile_password_checkers
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Sample rails application to test long passwords with different password strength gems
+This references forked versions of the gems with a patch applied. Deselecting to use the patch sets to limit to 100,000,000
 
-Things you may want to cover:
+## Gems used
+ - [fnando/password_strength](https://github.com/fnando/password_strength)
+ - [bdmac/strong_password](https://github.com/bdmac/strong_password)
 
-* Ruby version
+## Benchmark Script
+A stand-alone script to test times can be seen here: [cianmce/benchmark_password_gems](https://github.com/cianmce/benchmark_password_gems)
 
-* System dependencies
+## Interactive Demo
+[password-dos.herokuapp.com](https://password-dos.herokuapp.com/)
 
-* Configuration
+Attempting to check a number of large passwords will result in the site becoming temporarily unresponsive
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+[![image](https://user-images.githubusercontent.com/4098222/46259901-34f0a900-c4d7-11e8-9ada-f810f14a15e9.png)](https://password-dos.herokuapp.com/)
