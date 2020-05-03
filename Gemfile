@@ -6,7 +6,7 @@ ruby '2.2.8'
 gem 'rails', '~> 5.2.0'
 
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 3.12'
 # gem 'password_strength', '~> 1.1', '>= 1.1.4'
 gem 'password_strength', git: 'https://github.com/cianmce/password_strength'
 gem 'strong_password', git: 'https://github.com/cianmce/strong_password'
