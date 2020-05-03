@@ -2,8 +2,8 @@ class TestPasswordController < ApplicationController
   after_action :apply_patch
   SUPPORTED_GEMS = ["fnando/password_strength", "bdmac/strong_password"]
   PASSWORD_LENGTH_LIMITS = {
-    "fnando/password_strength" => 50_000,
-    "bdmac/strong_password" => 5_000_000
+    "fnando/password_strength" => ENV["PASSWORD_STRENGTH_MAX_LEN"] || 50_000,
+    "bdmac/strong_password" => ENV["STRONG_PASSWORD_MAX_LEN"] || 5_000_000
   }
 
   def index
@@ -25,7 +25,7 @@ class TestPasswordController < ApplicationController
     Rails.logger.info "password_length: #{@password_length}"
     Rails.logger.info "gem_name: #{@gem_name}"
 
-    flash[:error] = "Gem not supported" unless SUPPORTED_GEMS.include? @gem_name    
+    flash[:error] = "Gem not supported" unless SUPPORTED_GEMS.include? @gem_name
     flash[:error] = "Password is too long for '#{@gem_name}'. Limit is '#{PASSWORD_LENGTH_LIMITS[@gem_name]}'" if @password_length > PASSWORD_LENGTH_LIMITS[@gem_name]
     flash[:error] = "Username is too long for '#{@gem_name}'. Limit is '#{PASSWORD_LENGTH_LIMITS[@gem_name]}'" if username.length > PASSWORD_LENGTH_LIMITS[@gem_name]
     if flash[:error].blank?
