@@ -26,6 +26,7 @@ group :production do
 end
 
 group :development do
+  gem 'solargraph', '~> 0.39.7'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'pry', '~> 0.11.3'
