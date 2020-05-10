@@ -1,3 +1,5 @@
+[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/cianmce/profile_password_checkers) 
+
 # Profile Password Checkers
 
 Sample rails application to test long passwords with different password strength gems
